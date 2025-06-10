@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+body {
+  @apply bg-pink-50 text-gray-800;
+  font-family: 'Dancing Script', cursive;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+           env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
