@@ -1,8 +1,28 @@
+// src/pages/FinalPage.tsx
+import { finalPageData } from '../data/memories';
+import PhotoCarousel from '../components/PhotoCarousel';
+import AudioPlayer from '../components/AudioPlayer';
+
 export default function FinalPage() {
+  const { declaration, carouselImages, music } = finalPageData;
+
   return (
-    <div className="h-screen flex flex-col items-center justify-center">
-      <h1 className="text-3xl font-bold mb-4">Te amo para sempre!</h1>
-      {/* aqui virá o carousel e o áudio */}
+    <div className="
+      min-h-screen w-full flex flex-col justify-center items-center 
+      p-4 text-center text-white gap-8
+    ">
+      <div className="bg-black bg-opacity-40 p-6 rounded-xl shadow-2xl max-w-2xl">
+        <h1 className="text-3xl sm:text-4xl font-bold font-handwriting text-pink-300 mb-4">
+          Nossa Jornada de Amor
+        </h1>
+        <p className="text-lg sm:text-xl leading-relaxed">
+          {declaration}
+        </p>
+      </div>
+
+      <PhotoCarousel images={carouselImages} />
+
+      <AudioPlayer src={music} />
     </div>
   );
 }

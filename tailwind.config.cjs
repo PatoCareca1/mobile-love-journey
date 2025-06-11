@@ -1,12 +1,17 @@
-// tailwind.config.cjs
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: [
-    './index.html',
-    './src/**/*.{js,ts,jsx,tsx}',
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        // Adiciona a fonte 'Dancing Script' que já está no index.html
+        // O nome 'handwriting' é um apelido que criamos.
+        'handwriting': ['"Dancing Script"', 'cursive'],
+      },
+    },
   },
   plugins: [],
 }

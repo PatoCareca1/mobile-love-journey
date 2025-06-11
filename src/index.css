@@ -32,3 +32,31 @@ svg use:nth-of-type(17) { animation: float 4.8s infinite alternate; }
 svg use:nth-of-type(18) { animation: float 8.2s infinite alternate; }
 svg use:nth-of-type(19) { animation: float 6.8s infinite alternate; }
 svg use:nth-of-type(20) { animation: float 10.5s infinite alternate; }
+
+.swiper-slide {
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-pagination-bullet {
+  background-color: white !important;
+  opacity: 0.7;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #f472b6 !important; /* Rosa, para combinar com o tema */
+  opacity: 1;
+}
+
+.slider-arrow {
+  color: #f472b6 !important; /* Rosa */
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-size: 1.5rem !important;
+  font-weight: bold;
+}
