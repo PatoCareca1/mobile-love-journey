@@ -1,5 +1,3 @@
-// src/components/NextMemoryButton.tsx
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import type { Memory } from '../types/Memory';
 

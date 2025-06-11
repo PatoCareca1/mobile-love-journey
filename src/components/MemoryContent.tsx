@@ -1,6 +1,3 @@
-// src/components/MemoryContent.tsx
-import React from 'react';
-
 interface Props {
   caption: string;
   note: string;
