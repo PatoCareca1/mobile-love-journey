@@ -1,5 +1,5 @@
 // src/pages/MemoryPage.tsx
-import { useState, useEffect } from 'react'; // 1. Importamos os hooks useState e useEffect
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { memories } from '../data/memories';
 import MemoryContent from '../components/MemoryContent';
@@ -9,33 +9,20 @@ export default function MemoryPage() {
   const { id } = useParams<{ id: string }>();
   const memory = memories.find(m => m.id === Number(id));
 
-  // --- Início da Documentação da Lógica Aleatória ---
-  // 2. Criamos um estado para guardar o valor da rotação. Começa em 0.
   const [rotation, setRotation] = useState(0);
 
-  // 3. Usamos useEffect para executar um código uma única vez quando o componente é montado.
-  // A lista de dependências vazia `[]` no final garante que ele só rode na montagem.
   useEffect(() => {
-    // Geramos um número aleatório entre -5 e 5.
-    // Math.random() -> gera um número entre 0 e 1 (ex: 0.7)
-    // * 10         -> escala para 0 a 10 (ex: 7)
-    // - 5          -> desloca o intervalo para -5 a 5 (ex: 2)
     const randomRotation = Math.random() * 10 - 5;
-    setRotation(randomRotation); // 4. Atualizamos o estado com o nosso valor aleatório.
-  }, [id]); // Adicionamos `id` como dependência, para que a rotação mude ao navegar para outra memória.
+    setRotation(randomRotation);
+  }, [id]);
 
   if (!memory) return <p className="p-4 text-center">Memória não encontrada.</p>;
-  
-  // --- Fim da Documentação ---
 
   return (
     <div className="
       min-h-screen flex flex-col justify-center
       items-center p-4 gap-8
     ">
-      {/* Container da Polaroide 
-        Removemos a classe "-rotate-3" e adicionamos o atributo `style`.
-      */}
       <div
         className="
           w-full max-w-xs sm:max-w-sm
@@ -43,8 +30,6 @@ export default function MemoryPage() {
           relative
           transition-transform duration-300 ease-in-out
         "
-        // 5. Aplicamos a rotação dinamicamente usando o valor do nosso estado.
-        // O React transforma este objeto em um estilo inline: `transform: rotate(2deg);`
         style={{ transform: `rotate(${rotation}deg)` }}
       >
         <div className="relative w-full aspect-[1/1] bg-gray-200">
@@ -64,7 +49,11 @@ export default function MemoryPage() {
         </p>
       </div>
 
-      <MemoryContent caption={memory.caption} note={memory.note} />
+      {/* --- Documentação da Mudança --- */}
+      {/* A única alteração aqui foi na chamada do <MemoryContent />. */}
+      {/* Atualizámos para passar apenas a `note`, de acordo com a nova versão do componente. */}
+      {/* --- Fim da Documentação --- */}
+      <MemoryContent note={memory.note} />
 
       <NextMemoryButton current={memory} allMemories={memories} />
     </div>
