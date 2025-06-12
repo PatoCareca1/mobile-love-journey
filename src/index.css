@@ -60,3 +60,57 @@ svg use:nth-of-type(20) { animation: float 10.5s infinite alternate; }
   font-size: 1.5rem !important;
   font-weight: bold;
 }
+
+/* --- Carregamento das Fontes --- */
+@font-face {
+  font-family: 'Great Vibes';
+  src: url('/fonts/GreatVibes-Regular.ttf') format('truetype');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Quicksand';
+  src: url('/fonts/Quicksand-Regular.ttf') format('truetype');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Quicksand';
+  src: url('/fonts/Quicksand-Bold.ttf') format('truetype');
+  font-weight: 700;
+}
+
+/* --- Animação do Envelope --- */
+.envelope-wrapper {
+  transition: opacity 0.6s 0.9s, transform 0.6s 0.9s;
+}
+.envelope-wrapper.opening {
+  opacity: 0;
+  transform: translateY(-50px) scale(0.9);
+}
+.flap {
+  transform-origin: top;
+  transition: transform 0.6s ease-in-out;
+  transform-style: preserve-3d;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+.envelope-wrapper.opening .flap {
+  transform: rotateX(180deg);
+}
+.letter {
+  transition: transform 0.7s 0.2s ease-out;
+}
+.envelope-wrapper.opening .letter {
+  transform: translateY(-60px);
+}
+.heart-seal {
+  backface-visibility: hidden;
+}
+
+/* --- Animação do Botão --- */
+.pulse-btn {
+  animation: pulse 1.8s infinite;
+}
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(153, 25, 56, 0.4); }
+  70% { box-shadow: 0 0 0 15px rgba(153, 25, 56, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(153, 25, 56, 0); }
+}

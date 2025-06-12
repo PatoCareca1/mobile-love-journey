@@ -4,8 +4,16 @@ import { useParams } from 'react-router-dom';
 import { memories } from '../data/memories';
 import MemoryContent from '../components/MemoryContent';
 import NextMemoryButton from '../components/NextMemoryButton';
+import { useAudio } from '../context/AudioContext';
+
 
 export default function MemoryPage() {
+  const { playSong1 } = useAudio(); // 2. Pegar a função de tocar a música 1
+
+  useEffect(() => {
+    playSong1(); // 3. Tocar a música 1 quando a página de memória carregar
+  }, [playSong1]);
+  
   const { id } = useParams<{ id: string }>();
   const memory = memories.find(m => m.id === Number(id));
 

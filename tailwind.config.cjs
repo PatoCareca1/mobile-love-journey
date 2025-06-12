@@ -7,8 +7,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'handwriting': ['cursive'],
+        'handwriting': ['"Dancing Script"', 'cursive'],
         'comic': ['"Comic Neue"', 'cursive'],
+        'great-vibes': ['"Great Vibes"', 'cursive'],
+        'quicksand': ['"Quicksand"', 'sans-serif'],
       },
     },
   },

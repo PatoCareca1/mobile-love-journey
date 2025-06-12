@@ -81,7 +81,7 @@ export const memories: Memory[] = [
   },
   {
     id: 14 ,
-    images: ['/assets/memories/15.jpg'],
+    images: ['/assets/memories/14.jpg'],
     caption: '30 de novembro de 2024',
     note: 'A dor do mundo toca a pele dela.',
   },
@@ -185,23 +185,59 @@ export const memories: Memory[] = [
 
 export interface FinalPageData {
   declaration: string;
-  carouselImages: string[];
-  music: string;
+  music1_path: string;
+  music1_name: string;
+  music2_path: string;
+  music2_name: string;
 }
 
-// Junta todas as imagens das memórias em uma única lista para o carrossel final
-const allMemoryImages = memories.flatMap(memory => memory.images);
-
 export const finalPageData: FinalPageData = {
-  declaration:
-    'Cada um desses momentos é um tijolinho na construção do nosso amor. E que venham os próximos mil capítulos da nossa história. Eu te amo, hoje e sempre!',
+  declaration: `
+Ela chegou como quem sente antes de pensar.
+Ele observou como quem pensa antes de sentir.
+E mesmo falando línguas diferentes, havia algo entre eles que não precisava de tradução.
+
+Ela é maré: oscila, envolve, às vezes invade — mas sempre com o coração exposto.
+Ele é rocha: firme, contido, não se entrega de primeira — mas guarda em si um calor silencioso.
+
+Ela fala com o corpo, com o riso, com o desabafo.
+Ele escuta com os olhos, com o silêncio atento, com as pausas que ninguém percebe.
+
+Ela deseja presença.
+Ele oferece constância.
+
+Ambos odeiam injustiças — ela chora, ele se mobiliza.
+Ela sente a dor do mundo na pele.
+Ele tenta encontrar um jeito de consertá-lo por dentro.
+
+Ela ama o agora.
+Ele constrói para o depois.
+
+E mesmo com tantas diferenças, ou talvez por causa delas, criaram uma ponte.
+Não foi um encaixe imediato — foi uma curiosidade mútua.
+Um "quem é você, por trás desse jeito todo seu?"
+
+E aos poucos, ela descobriu que ele ama com raízes, não com fogos de artifício.
+E ele descobriu que ela sente com asas, mas sabe pousar.
+
+Ela acendeu frestas onde ele nem sabia que faltava luz.
+Ele cuidou de cantos dela que nunca haviam recebido calma.
+
+São diferentes, sim.
+Mas iguais na essência: os dois querem pertencer sem se perder.
+Querem ser amados do jeito certo, não do jeito fácil.
+Querem verdade, mesmo que ela venha com confronto.
+
+Ela é caos bonito.
+Ele é ordem que acolhe.
+E quando se encontram, não se anulam — se completam.
+`,
   
-  // Usamos as imagens de todas as memórias.
-  // Você pode adicionar mais imagens manualmente aqui se quiser.
-  carouselImages: allMemoryImages,
+  // MÚSICA 1 (JORNADA)
+  music1_path: '/assets/audio/jornada.mp3', 
+  music1_name: 'i cant take my eyes of you',
   
-  // IMPORTANTE: Coloque o seu arquivo de música na pasta `public`.
-  // Por exemplo, crie a pasta `public/audio` e coloque o arquivo lá.
-  // O caminho deve começar com `/`
-  music: '/audio/nossa-musica.mp3', 
+  // MÚSICA 2 (FINAL)
+  music2_path: '/assets/audio/final.mp3',
+  music2_name: 'die with a smile', 
 };
